@@ -1,0 +1,15 @@
+
+version: '3.8'
+
+services:
+  packet-tracer:
+    image: somatorio/packet-tracer
+    container_name: packet-tracer-container
+    environment:
+      - DISPLAY=unix$DISPLAY
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - $HOME/.packettracer:/root/pt
+    stdin_open: true    # Keep STDIN open even if not attached
+    tty: true           # Allocate a pseudo-TTY
+    restart: always     # Restart policy in case the container stops
